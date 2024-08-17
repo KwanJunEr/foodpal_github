@@ -17,12 +17,12 @@ const LoggedInPageHeader = () => {
       </div>
 
       <div>
-        <ul className="flex flex-row space-x-5 text-white">
+        <ul className="flex flex-row space-x-10 text-white">
           <Link href={"/donate_and_sell"}>
           <li>Donate and Sell</li>
           </Link>
           <Link href={"/contributions"}>
-          <li>Contributions</li>
+          <li>Community</li>
           </Link>
           <Link href= {"/projects"}>
           <li>Projects</li>

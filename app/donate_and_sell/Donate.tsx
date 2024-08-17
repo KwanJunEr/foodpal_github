@@ -146,7 +146,7 @@ const Donate = () => {
         </form>
       </div>
       <Pending show={showPendingModal} onComplete={handlePendingComplete} />
-      <Complete show={showCompletedModal} onClose={handleCloseCompletedModal} />
+      <Complete show={showCompletedModal} onClose={handleCloseCompletedModal} people = {"Foodbank Malaysia (FBM)"}/>
     </div>
   );
 };

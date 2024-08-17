@@ -147,7 +147,7 @@ const Sell = () => {
         </form>
       </div>
       <Pending show={showPendingModal} onComplete={handlePendingComplete} />
-      <Complete show={showCompletedModal} onClose={handleCloseCompletedModal} />
+      <Complete show={showCompletedModal} onClose={handleCloseCompletedModal} people = {"VN GREEN GLOBAL Clinical Waste"}/>
     </div>
   );
 };

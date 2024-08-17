@@ -86,7 +86,7 @@ const Everything = () => {
 
             <div className="shadow-md rounded-md border-b-4 border-blue-400 flex-1 py-4 mt-4 p-4 bg-white">
               <p className="text-left text-lg font-medium text-gray-700">
-                Surplus Food Contributed
+                Total Surplus Food Contributed
               </p>
               <div className="flex flex-row justify-between items-center mt-3">
                 <h5 className="text-4xl font-bold text-blue-600">2348</h5>
@@ -98,11 +98,11 @@ const Everything = () => {
 
             <div className="shadow-md rounded-md border-b-4 border-yellow-400 flex-1 py-4 mt-4 p-4 bg-white">
               <p className="text-left text-lg font-medium text-gray-700">
-                Food Banks Donated
+                Total Estimated CO2 Reduced
               </p>
               <div className="flex flex-row justify-between items-center mt-3">
                 <h5 className="text-4xl font-bold text-yellow-600">5</h5>
-                <p className="text-left text-gray-600 text-lg">org</p>
+                <p className="text-left text-gray-600 text-lg">ton</p>
               </div>
             </div>
           </div>

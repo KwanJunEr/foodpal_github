@@ -4,10 +4,11 @@ import React from "react";
 interface CompleteProps {
   show: boolean;
   onClose: () => void;
+  people:string
   
 }
 
-const Complete: React.FC<CompleteProps> = ({ show, onClose }) => {
+const Complete: React.FC<CompleteProps> = ({ show, onClose, people }) => {
   if (!show) {
     return null;
   }
@@ -35,8 +36,8 @@ const Complete: React.FC<CompleteProps> = ({ show, onClose }) => {
         </div>
         <br />
         <br />
-        <p className="text-white text-xl">your match:</p>
-        <p className="text-white text-xl">ABC company</p>
+        <p className="text-white text-xl">Your match:</p>
+        <p className="text-white text-xl">{people}</p>
         {/* <div>
           <img src="/handshake.png" alt="" />
         </div> */}

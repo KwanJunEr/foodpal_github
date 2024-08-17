@@ -1,8 +1,37 @@
-import { WobbleCard } from "@/components/ui/wobble-card";
-import React from "react";
+'use client';
+import React, { useState } from "react";
 import Image from "next/image";
+import { Modal, Row, Input, Button, Form } from "antd";
+import { WobbleCard } from "@/components/ui/wobble-card";
 
 const Projects = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [form] = Form.useForm();
+  const [investStatus,setinvestStatus] = useState(false);
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleConfirm = () => {
+    form
+      .validateFields()
+      .then(values => {
+        console.log("Investment Amount: ", values.amount);
+        // Handle investment logic here
+        setIsModalOpen(false);
+      })
+      .catch(info => {
+        console.log("Validate Failed:", info);
+      });
+
+      setinvestStatus(true);
+  };
+
   return (
     <div className="m-5">
       {/* Container for the search box */}
@@ -34,71 +63,99 @@ const Projects = () => {
               List of Projects You Can Be Part Of:
             </p>
             <div className="flex flex-row justify-between items-center p-6 bg-gradient-to-r from-purple-200 via-purple-300 to-purple-400 rounded-lg shadow-md">
-      <div className="space-y-4 max-w-md">
-        <p className="text-2xl font-bold text-gray-800">Food Waste Project 1</p>
-        <p className="text-base text-gray-700">This is about Food Waste Project</p>
-        <button className="bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-300">
-          Invest Now
-        </button>
-      </div>
-      <div>
-        <Image
-          src="/lego.png"
-          width={400}
-          height={400}
-          className="rounded-lg"
-          alt="Project Image"
-        />
-      </div>
-    </div>
+              <div className="space-y-4 max-w-md">
+                <p className="text-2xl font-bold text-gray-800">Food Waste Project 1</p>
+                <p className="text-base text-gray-700">This is about Food Waste Project</p>
+                <button
+                  onClick={showModal}
+                  className="bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-300"
+                >
+                  {investStatus ? <p>Invested</p> : <p>Invest Now!</p> }
+                </button>
+                <Modal
+                  title="Invest in Project"
+                  open={isModalOpen}
+                  centered
+                  footer={null}
+                  onCancel={handleCancel}
+                >
+                  <Form form={form} layout="vertical">
+                    <Form.Item
+                      label="Amount of FoodPal Tokens"
+                      name="amount"
+                      rules={[{ required: true, message: "Please enter the amount to invest" }]}
+                    >
+                      <Input type="number" placeholder="Enter amount" />
+                    </Form.Item>
+                    <div className="flex flex-row justify-end space-x-5">
+                      <Button onClick={handleCancel} type="default">
+                        Cancel
+                      </Button>
+                      <Button onClick={handleConfirm} type="primary">
+                        Confirm
+                      </Button>
+                    </div>
+                  </Form>
+                </Modal>
+              </div>
+              <div>
+                <Image
+                  src="/lego.png"
+                  width={400}
+                  height={400}
+                  className="rounded-lg"
+                  alt="Project Image"
+                />
+              </div>
+            </div>
 
-    <div className="flex flex-row justify-between items-center p-6 bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 rounded-lg shadow-md mt-10">
-      <div className="space-y-4 max-w-md">
-        <p className="text-2xl font-bold text-gray-800">Food Waste Project 1</p>
-        <p className="text-base text-gray-700">This is about Food Waste Project</p>
-        <button className="bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-300">
-          Invest Now
-        </button>
-      </div>
-      <div>
-        <Image
-          src="/div.png"
-          width={400}
-          height={200}
-          className="rounded-lg"
-          alt="Project Image"
-        />
-      </div>
-    </div>
+            <div className="flex flex-row justify-between items-center p-6 bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 rounded-lg shadow-md mt-10">
+              <div className="space-y-4 max-w-md">
+                <p className="text-2xl font-bold text-gray-800">Food Waste Project 2</p>
+                <p className="text-base text-gray-700">This is about another Food Waste Project</p>
+                <button
+                  onClick={showModal}
+                  className="bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-300"
+                >
+                  Invest Now
+                </button>
+              </div>
+              <div>
+                <Image
+                  src="/div.png"
+                  width={400}
+                  height={200}
+                  className="rounded-lg"
+                  alt="Project Image"
+                />
+              </div>
+            </div>
           </div>
+
           <div className="bg-white p-4 rounded-lg shadow-lg">
             <p className="text-lg font-bold">Project I have Invested In</p>
             <WobbleCard
-              containerClassName="bg-gradient-to-r from-yellow-200 via-orange-200 to-red-200 h-[240px] mt-10 "
+              containerClassName="bg-gradient-to-r from-yellow-200 via-orange-200 to-red-200 h-[240px] mt-10"
               className=""
             >
-              <div className="flex flex-row items-center ">
-  <div className="ml-10 flex flex-col space-y-3 mt-5">
-    <p className="text-xl font-semibold text-gray-800">
-      Food Waste Project 1
-    </p>
-    <p className="text-base text-gray-600">
-      Aiming to reduce food waste through bins.
-    </p>
-    <p>Date Started: 17 August 2024</p>
-    <p>Expected Completion Date: 31 December 2024</p>
-
- 
-    <div className="w-full bg-gray-200 rounded-full h-2.5 mt-2.5">
-
-      <div className="bg-blue-600 h-2.5 rounded-full" style={{ width: '20%' }}></div>
-    </div>
-    <p className="text-sm text-gray-600 mt-2">
-      100,000 of 500,000 FoodPal tokens invested
-    </p>
-  </div>
-</div>
-
+              <div className="flex flex-row items-center">
+                <div className="ml-10 flex flex-col space-y-3 mt-5">
+                  <p className="text-xl font-semibold text-gray-800">
+                    Food Waste Project 1
+                  </p>
+                  <p className="text-base text-gray-600">
+                    Aiming to reduce food waste through bins.
+                  </p>
+                  <p>Date Started: 17 August 2024</p>
+                  <p>Expected Completion Date: 31 December 2024</p>
+                  <div className="w-full bg-gray-200 rounded-full h-2.5 mt-2.5">
+                    <div className="bg-blue-600 h-2.5 rounded-full" style={{ width: '20%' }}></div>
+                  </div>
+                  <p className="text-sm text-gray-600 mt-2">
+                    100,000 of 500,000 FoodPal tokens invested
+                  </p>
+                </div>
+              </div>
             </WobbleCard>
           </div>
         </div>
