@@ -7,6 +7,7 @@ import { useState } from "react";
 import Partnership from "@/components/LandingPageSections/Parternship";
 import CalltoAction from "@/components/LandingPageSections/CalltoAction";
 import LoggedInPageHeader from "@/components/LoggedInPageHeader";
+import Everything from "@/components/LoggedInPageSection/Everything"
 
 export default function Home() {
 
@@ -19,9 +20,9 @@ export default function Home() {
 
   return (
     <>
-    {!loggedIn? <div>
+    {loggedIn? <div>
         <LoggedInPageHeader/>
-
+        <Everything/>
     </div> :
         
     <div>
