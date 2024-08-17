@@ -1,0 +1,28 @@
+.usual-design{
+    height:100vh;
+     scroll-behavior: smooth;
+     scroll-snap-type: y mandatory;
+     overflow:hidden
+    
+    
+  }
+
+
+.hero-gradient {
+    background: linear-gradient(
+      to right,
+      #F4A3A6,         /* Light red */
+      #F5B95C,         /* Soft orange */
+      #F8E9D6          /* Very light orange */
+    );
+  }
+
+  .image-design {
+    animation: animate 2s infinite alternate;
+  }
+  
+  @keyframes animate {
+    to {
+      transform: translateY(20px);
+    }
+  }
