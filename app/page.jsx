@@ -11,32 +11,34 @@ import Everything from "@/components/LoggedInPageSection/Everything"
 
 export default function Home() {
 
-  const[loggedIn,setLoggedInStatus] = useState('false');
+  const [loggedIn, setLoggedInStatus] = useState(false); // Use boolean instead of string
+  const [walletAddress, setWalletAddress] = useState('');
 
-  const handleLoggedIn = ()=>{
-    setLoggedInStatus(!loggedIn);
+  const handleLoggedIn = (walletAddress) => {
+    setLoggedInStatus(true); // Set loggedIn to true when user logs in
+    setWalletAddress(walletAddress);
   }
 
+  const handleLogout = () =>{
+    setLoggedInStatus(false);
+  }
 
   return (
     <>
-    {loggedIn? <div>
-        <LoggedInPageHeader/>
-        <Everything/>
-    </div> :
-        
-    <div>
-      <LandingPageHeader handleLoggedIn = {handleLoggedIn}/>
-      <HeroSection/>
-      <HowItWorks/>
-      <Partnership/>
-      <CalltoAction/>
-      
-      </div>}
-    
-    
+      {loggedIn ? (
+        <div>
+          <LoggedInPageHeader walletAddress={walletAddress} handleLogout = {handleLogout}/> {/* Pass walletAddress here */}
+          <Everything />
+        </div>
+      ) : (
+        <div>
+          <LandingPageHeader handleLoggedIn={handleLoggedIn} walletAddress={walletAddress} loggedIn = {loggedIn}/>
+          <HeroSection />
+          <HowItWorks />
+          <Partnership />
+          <CalltoAction />
+        </div>
+      )}
     </>
-    
-    
   );
 }
