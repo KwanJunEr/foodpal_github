@@ -34,9 +34,9 @@ const LoggedInPageHeader = () => {
       </div>
 
       <div className="flex flex-row space-x-4 items-center">
-        <button className="p-2 bg-red-600 rounded-lg shadow-lg font-semibold text-white hover:bg-red-700 transition-transform transform hover:scale-105 duration-200">
-          Connect Wallet
-        </button>
+        <span className="p-2 bg-red-600 rounded-lg shadow-lg font-semibold text-white hover:bg-red-700 transition-transform transform hover:scale-105 duration-200">
+          {account ? `${account.substring(0, 6)}...${account.substring(account.length - 4)}` : "Loading..."}
+        </span>
         <div>
           <Image src="/userprofile.png" alt="userprofile" width={40} height={40} className="rounded-full border-2 border-white" />
         </div>
