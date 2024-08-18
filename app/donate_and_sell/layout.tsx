@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <LoggedInPageHeader/>
+        <LoggedInPageHeader walletAddress={undefined} handleLogout={undefined}/>
         {children}
         </body>
     </html>

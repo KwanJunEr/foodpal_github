@@ -6,6 +6,7 @@ import { Modal, Button } from 'antd';
 const Exchange = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [tokennumber, setTokenNumber] = useState('5000');
+  const [carbonCredit,setcarbonCredit] = useState('3')
 
   // Create refs for the input fields
   const tokenInputRef = useRef(null);
@@ -20,6 +21,7 @@ const Exchange = () => {
     if (tokenInputRef.current) tokenInputRef.current.value = '';
     if (carbonCreditInputRef.current) carbonCreditInputRef.current.value = '';
     setTokenNumber('4000');
+    setcarbonCredit('4');
 
 
     // Close the modal
@@ -35,8 +37,16 @@ const Exchange = () => {
         </p>
       </div>
 
+      <div className="flex flex-col justify-end  items-end p-4 bg-gray-800 text-white rounded-lg shadow-lg space-y-2 px-10">
+  <p className="text-lg font-semibold">My Carbon Credits:</p>
+  <p className="text-2xl font-bold">{carbonCredit}</p>
+  <a href="/more-info" className="text-blue-400 hover:underline">
+    View more
+  </a>
+</div>
+
       {/* Exchange Center */}
-      <div className='mt-20 mx-10'>
+      <div className='mt-10 mx-10'>
         <h1 className='text-2xl font-semibold text-gray-800 mb-3'>Exchange Center</h1>
         <p className='text-sm text-gray-600 mb-2'>
           Exchange your FoodPal tokens for Carbon Credits which you can sell to businesses.
