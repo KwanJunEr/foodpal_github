@@ -12,6 +12,8 @@ import Everything from "@/components/LoggedInPageSection/Everything"
 export default function Home() {
 
   const[loggedIn,setLoggedInStatus] = useState('false');
+  const [account, setAccount] = useState("");
+
 
   const handleLoggedIn = ()=>{
     setLoggedInStatus(!loggedIn);
@@ -21,12 +23,12 @@ export default function Home() {
   return (
     <>
     {loggedIn? <div>
-        <LoggedInPageHeader/>
+        <LoggedInPageHeader account={account}/>
         <Everything/>
     </div> :
         
     <div>
-      <LandingPageHeader handleLoggedIn = {handleLoggedIn}/>
+      <LandingPageHeader handleLoggedIn = {handleLoggedIn} setAccount={setAccount}/>
       <HeroSection/>
       <HowItWorks/>
       <Partnership/>
