@@ -9,6 +9,8 @@ import CalltoAction from "@/components/LandingPageSections/CalltoAction";
 import LoggedInPageHeader from "@/components/LoggedInPageHeader";
 import Everything from "@/components/LoggedInPageSection/Everything"
 
+
+
 export default function Home() {
 
   const [loggedIn, setLoggedInStatus] = useState(false); // Use boolean instead of string
@@ -22,6 +24,8 @@ export default function Home() {
   const handleLogout = () =>{
     setLoggedInStatus(false);
   }
+
+  
 
   return (
     <>
