@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const LandingPageHeader = ({ handleLoggedIn,loggedIn }) => {
+const LandingPageHeader = ({ handleLoggedIn, loggedIn }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [walletAddress, setWalletAddress] = useState(null);
 
@@ -88,7 +88,17 @@ const LandingPageHeader = ({ handleLoggedIn,loggedIn }) => {
           <h1 className="text-2xl font-extrabold">FoodPal</h1>
         </div>
 
-        <div>
+        <div className="flex items-center gap-4">
+          {/* Create Wallet Button */}
+          <button
+            onClick={openModal}
+            
+            className="border rounded-md py-2 px-4 hover:bg-black hover:text-white transition-all duration-300"
+          >
+            Create Wallet
+          </button>
+
+          {/* Connect Wallet Button */}
           <button
             onClick={openModal}
             className="border rounded-md py-2 px-4 hover:bg-black hover:text-white transition-all duration-300"

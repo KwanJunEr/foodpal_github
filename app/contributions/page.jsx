@@ -23,7 +23,7 @@ const Contributions = () => {
               <p className="text-lg font-semibold mb-1">
                 Total Estimated Carbon Dioxide Reduced
               </p>
-              <p className="text-2xl font-bold text-[#C0360B]">value</p>
+              <p className="text-2xl font-bold text-[#C0360B]">100 Tons</p>
             </div>
 
             <div className="border-r border-gray-300 h-24"></div>
